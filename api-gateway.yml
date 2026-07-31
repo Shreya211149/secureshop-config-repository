@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 0
 
 eureka:
   client:
@@ -17,7 +17,7 @@ spring:
         webflux:
           routes:
 
-            - id:: identity-service-route
+            - id: identity-service-route
               uri: lb://IDENTITY-SERVICE
               predicates:
                 - Path=/identity/**
@@ -56,10 +56,4 @@ management:
 
   endpoint:
     health:
-      show-details: alwayseureka:
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}:${random.valuew
-
-
-
+      show-details: always
